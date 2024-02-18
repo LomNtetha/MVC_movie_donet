@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcMovie.Models;
-
+// test
 public class Movie
 {
     public int Id { get; set; }
