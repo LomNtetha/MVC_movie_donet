@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using MvcMovie.Data;
 using System;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace MvcMovie.Models;
 // test
@@ -16,6 +18,14 @@ public class Movie
     public DateTime ReleaseDate { get; set; }
     public string? Genre { get; set; }
     public decimal Price { get; set; }
+}
+
+public class MovieGenreViewModel
+{
+    public List<Movie>? Movies { get; set; }
+    public SelectList? Genres { get; set; }
+    public string? MovieGenre { get; set; }
+    public string? SearchString { get; set; }
 }
 
 public static class SeedData
