@@ -105,8 +105,27 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
+            
+
             return View(movie);
         }
+
+        // GET: Movies/Details/5
+public async Task<IActionResult> DetailsAsJson(int? id)
+{
+    if (id == null)
+    {
+        return NotFound();
+    }
+
+    var movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
+    if (movie == null)
+    {
+        return NotFound();
+    }
+
+    return Json(movie); // Convert movie object to JSON
+}
 
         // GET: Movies/Delete/5
         public async Task<IActionResult> Delete(int? id)
